@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<title></title>
+<!-- <script src="popcorn.min.js"></script> -->
+<style>
+#video-compare-container {
+	display: block;
+	line-height: 0;
+	position: relative;
+	width: 50%;
+	margin: 0 auto;
+	padding-top: 28.23%;
+}
+#video-compare-container > video {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	height: 100%;
+}
+#video-clipper {
+	width: 50%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	overflow: hidden;
+}
+#video-clipper video {
+	width: 200%;
+	position: absolute;
+	height: 100%;
+}
+</style>
+</head>
+<body>
+
+<div id="video-compare-container">
+	<video id="rightVideo">
+		<source src="./videos/green.mp4">
+	</video>
+	<div id="video-clipper">
+		<video id="leftVideo">
+		 		<source src="./videos/pink.mp4">
+		</video>
+	</div>
+</div>
+
+<script>
+
+function trackLocation(e) {
+	var rect = videoContainer.getBoundingClientRect(),
+	position = ((e.pageX - videoContainer.offsetLeft) / videoContainer.offsetWidth) * 100;
+	if (position <= 100) {
+		videoClipper.style.width = position+"%";
+		leftVideo.style.width = ((100/position)*100)+"%";
+		leftVideo.volume = position / 100;
+		rightVideo.volume = (100 - position) / 100;
+		leftVideo.style.zIndex = 3;
+		// console.log("Position " + position);
+	}
+}
+
+
+
+var videoContainer = document.getElementById("video-compare-container"),
+videoClipper = document.getElementById("video-clipper"),
+rightVideo = document.getElementById("rightVideo"),
+leftVideo = document.getElementById("leftVideo");
+
+videoContainer.addEventListener( "mousemove", trackLocation, false);
+videoContainer.addEventListener("touchstart",trackLocation,false);
+videoContainer.addEventListener("touchmove",trackLocation,false);
+rightVideo.oncanplaythrough = function() {
+	console.log("Ready");
+		leftVideo.play();
+		rightVideo.play();
+
+}
+
+
+</script>
+</body>
+</html>
