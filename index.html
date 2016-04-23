@@ -12,6 +12,7 @@
 	width: 50%;
 	margin: 0 auto;
 	padding-top: 28.23%;
+	overflow: hidden;
 }
 #video-compare-container > video {
 	width: 100%;
@@ -29,7 +30,6 @@
 #video-clipper video {
 	width: 200%;
 	position: absolute;
-	height: 100%;
 }
 </style>
 </head>
@@ -46,14 +46,26 @@
 	</div>
 </div>
 
+<div id="position"></div>
+
 <script>
 
 function trackLocation(e) {
 	var rect = videoContainer.getBoundingClientRect(),
+	offset = e.pageX - videoContainer.offsetLeft,
+	offsetRight = videoContainer.offsetWidth - offset,
 	position = ((e.pageX - videoContainer.offsetLeft) / videoContainer.offsetWidth) * 100;
+	positionDiv.innerHTML = position;
 	if (position <= 100) {
 		videoClipper.style.width = position+"%";
+		// leftVideo.style.height = "100%";
 		leftVideo.style.width = ((100/position)*100)+"%";
+		// leftVideo.style.height = ((100/position)*100)+"%";
+
+		rightVideo.style.webkitTransform = "translate(" + offset / 2 + "px, 0)";
+
+		leftVideo.style.webkitTransform = "translate(-" + offsetRight / 2 + "px, 0)";
+
 		leftVideo.volume = position / 100;
 		rightVideo.volume = (100 - position) / 100;
 		leftVideo.style.zIndex = 3;
@@ -61,7 +73,7 @@ function trackLocation(e) {
 	}
 }
 
-
+var positionDiv = document.getElementById("position");
 
 var videoContainer = document.getElementById("video-compare-container"),
 videoClipper = document.getElementById("video-clipper"),
