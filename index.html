@@ -29,6 +29,7 @@
 #clipper video {
 	width: 200%;
 	position: absolute;
+	z-index: 10;
 }
 </style>
 </head>
@@ -60,8 +61,8 @@ function trackLocation(e) {
 		videoClipper.style.width = position+"%";
 		leftVideo.style.width = ((100/position)*100)+"%";
 
+		// for adaptive resizing:
 		rightVideo.style.webkitTransform = "translate(" + offset / 2 + "px, 0)";
-
 		leftVideo.style.webkitTransform = "translate(-" + offsetRight / 2 + "px, 0)";
 
 		leftVideo.volume = position / 100;
@@ -71,7 +72,6 @@ function trackLocation(e) {
 }
 
 var positionDiv = document.getElementById("position");
-
 var videoContainer = document.getElementById("container"),
 videoClipper = document.getElementById("clipper"),
 rightVideo = document.getElementById("rightVideo"),
@@ -84,7 +84,6 @@ rightVideo.oncanplaythrough = function() {
 	console.log("Ready");
 		leftVideo.play();
 		rightVideo.play();
-
 }
 
 
