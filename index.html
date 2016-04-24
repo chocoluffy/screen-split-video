@@ -3,31 +3,30 @@
 <head>
 <meta charset=utf-8>
 <title></title>
-<!-- <script src="popcorn.min.js"></script> -->
 <style>
-#video-compare-container {
+#container {
 	display: block;
-	line-height: 0;
+	/*top: 5em; // use top and so on positional params for position.*/
+	margin: 0 auto;
 	position: relative;
 	width: 50%;
-	margin: 0 auto;
-	padding-top: 28.23%;
+	padding-top: 28.1%;
 	overflow: hidden;
 }
-#video-compare-container > video {
+#container > video {
 	width: 100%;
 	position: absolute;
 	top: 0;
 	height: 100%;
 }
-#video-clipper {
+#clipper {
 	width: 50%;
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	overflow: hidden;
 }
-#video-clipper video {
+#clipper video {
 	width: 200%;
 	position: absolute;
 }
@@ -35,15 +34,16 @@
 </head>
 <body>
 
-<div id="video-compare-container">
+<div id="container">
+	<div id="clipper">
+		<video id="leftVideo">
+				<source src="videos/pink.mp4">
+		</video>
+	</div>
 	<video id="rightVideo">
 		<source src="videos/green.mp4">
 	</video>
-	<div id="video-clipper">
-		<video id="leftVideo">
-		 		<source src="videos/pink.mp4">
-		</video>
-	</div>
+
 </div>
 
 <div id="position"></div>
@@ -58,9 +58,7 @@ function trackLocation(e) {
 	positionDiv.innerHTML = position;
 	if (position <= 100) {
 		videoClipper.style.width = position+"%";
-		// leftVideo.style.height = "100%";
 		leftVideo.style.width = ((100/position)*100)+"%";
-		// leftVideo.style.height = ((100/position)*100)+"%";
 
 		rightVideo.style.webkitTransform = "translate(" + offset / 2 + "px, 0)";
 
@@ -69,14 +67,13 @@ function trackLocation(e) {
 		leftVideo.volume = position / 100;
 		rightVideo.volume = (100 - position) / 100;
 		leftVideo.style.zIndex = 3;
-		// console.log("Position " + position);
 	}
 }
 
 var positionDiv = document.getElementById("position");
 
-var videoContainer = document.getElementById("video-compare-container"),
-videoClipper = document.getElementById("video-clipper"),
+var videoContainer = document.getElementById("container"),
+videoClipper = document.getElementById("clipper"),
 rightVideo = document.getElementById("rightVideo"),
 leftVideo = document.getElementById("leftVideo");
 
