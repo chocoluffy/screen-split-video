@@ -1,6 +1,3 @@
-
-![beoplay](https://dl.dropboxusercontent.com/s/09k1efohvmdkphu/beoplay%20demo.gif?dl=0)
-
 目标： 仿造beoplay这款耳机[主页的宣传视频](http://www.beoplay.com/products/beoplayh7?_ga=1.127614725.969767543.1461077943#video)来实现一个类似的视频分屏的效果。
 
 版本1.0（不加视频自适应居中）:
