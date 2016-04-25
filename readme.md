@@ -1,4 +1,4 @@
-[博客原链接：](http://chocoluffy.com/2016/04/23/%E5%88%9B%E6%84%8F%E8%A7%86%E9%A2%91%E5%88%86%E5%B1%8F-HTML5-JS/)
+[博客原链接](http://chocoluffy.com/2016/04/23/%E5%88%9B%E6%84%8F%E8%A7%86%E9%A2%91%E5%88%86%E5%B1%8F-HTML5-JS/)
 
 目标： 仿造beoplay这款耳机[主页的宣传视频](http://www.beoplay.com/products/beoplayh7?_ga=1.127614725.969767543.1461077943#video)来实现一个类似的视频分屏的效果。
 
