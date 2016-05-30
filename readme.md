@@ -84,4 +84,4 @@ leftVideo.style.webkitTransform = "translate(-" + offsetRight / 2 + "px, 0)";
 
 > 总结： HTML5对media文件更多功能上的支持使得我们可以更好的操作media文件， 包括视频的开始暂停， 以及各种音量的调节， 而这个程序实例， 是一个很好的对相关API的使用的一个示范和一个小小的创意细节。这个项目， 也是饭后和朋友聊天聊出来的实现方案，也希望看到更多的创意脑洞和美的设计!
 
-这个是这个项目的[github repo](https://github.com/chocoluffy/screen-split-video), 这个是项目的展示[demo](http://chocoluffy.com/screen-split-video/) 欢迎评论和star~
+这个是这个项目的[github repo](https://github.com/chocoluffy/screen-split-video), 这个是项目的展示[demo](http://chocoluffy.com/screen-split-video/) 欢迎评论和pull request~
